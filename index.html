@@ -1,89 +1,7 @@
 <html>
     <head>
-        <style>
-            body {
-                background-color: #333333;
-            }
-            .container {
-                width: inherit;
-                height: inherit;
-                display: flex;
-                background-color: #333333;
-                align-items: center;
-                justify-content: center;
-            }
-            @keyframes rainbow {
-                0% {background-position: 0% 100%;}
-                50% {background-position: 100% 200%;}
-                100% {background-position: 0% 100%;}
-            }
-            @keyframes ex {
-                0% {background-color: red;}
-                50% {background-color: green;}
-                100% {background-color: blue;}
-            }
-            @keyframes rot {
-                0% {transform: rotate(0deg);}
-                50% {transform: rotate(180deg);}
-                100% {transform: rotate(360deg);}
-            }
-            .bar {
-                height: 5px;
-                width: 100%;
-                margin-top: 20px;
-                background: linear-gradient(124deg,#ff2400,#e81d1d,#e8b71d,#e3e81d,#1de840,#1ddde8,#2b1de8,#dd00f3,#dd0088);
-                background-size: 900% 900%;
-                animation: rainbow 4s ease infinite;
-            }
-            .bhai {
-                border-radius: 5px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform-origin: 50% 50%;
-                animation: rot 4s ease infinite;
-            }
-            .clock {
-                border-radius: 50%;
-                box-shadow: 2px 2px 2px #999999,-2px -2px 2px #000000;
-                transform-origin: 50% 50%;
-            }
-            .inside {
-                border-radius: 50%;
-                margin: 10px;
-                box-shadow:inset 2px 2px 2px #999999,inset -2px -2px 2px #000000;
-                transform-origin: 50% 50%;
-            }
-            .second {
-                height: 8px;
-                width: 120px;
-                background-color: #ff2400;
-                transform-origin: 20% 50%;
-                position: absolute;
-                top: 44%;
-                left: 48%;
-            }
-            .minute {
-                height: 9px;
-                width: 150px;
-                background-color: rgb(102, 255, 0);
-                transform-origin: 20% 50%;
-                position: absolute;
-                top: 44%;
-                left: 47.5%;
-            }
-            .hour {
-                height: 10px;
-                width: 90px;
-                background-color: rgb(0, 17, 255);
-                transform-origin: 20% 50%;
-                position: absolute;
-                top: 44%;
-                left: 48.5%;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css"/>
     </head>
-
     <body>
         <div class="bar" id="b"></div><br/>
         <div class="container">
@@ -96,37 +14,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            var sec=document.getElementById("s");
-            var min=document.getElementById("m");
-            var hou=document.getElementById("h");
-            var d=new Date();
-            var i=270+(6*d.getSeconds());
-            var j=270+(6*d.getMinutes());
-            var k=270+(30*d.getHours());
-            var c=0;
-            function fun() {
-                i+=6;
-                i=i%360;
-                if(i==270) {
-                    j+=6;
-                    c++;
-                }
-                j=j%360;
-                if(c==60) {
-                    k+=30;
-                    c=0;
-                }
-                k=k%360;
-                sec.style.transform='rotate('+i+'deg)';
-                min.style.transform='rotate('+j+'deg)';
-                hou.style.transform='rotate('+k+'deg)';
-            }
-            sec.style.transform='rotate('+i+'deg)';
-            min.style.transform='rotate('+j+'deg)';
-            hou.style.transform='rotate('+k+'deg)';
-            var f=setInterval("fun()",  1000);
-            
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
